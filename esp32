@@ -1,0 +1,52 @@
+ 
+ 
+ 
+ #include <ESP8266WiFi. h>
+ #include <WifiClient.h>
+ #define UART BAUD 115200
+ #define packTimeout 1
+ #define bufferSize 8192
+
+
+   const char *ssid = "Speeduino";
+   const char *pw = "123456";
+   IPAddress ip (192, 168, 1, 80);
+   IPAddress netmask (255, 255, 255, 0):
+   const int port = 2000;
+
+   WiFiServer server (port);
+   WiFiClient client;
+   uints_t buf1 (buffersize);
+   uint16_€ 11=0;
+   uinta_s buf2 (buffersize);
+   oant16_6 12=0;
+
+
+   
+   void setup () (
+   Serial.begin (UART_BAUD);
+)
+   WiFi.mode (WIEI AP) ;
+   Wiri. softAPConfig(ip, ip, netmask);
+   wiRi.softAP （ssid, pw）；
+   Serial.printIn("Starting TCP Server");
+   server. begin (); )
+
+
+
+  void 100p() |
+ if!client.connected()) |
+ client = server.available ();
+ return;
+ if(client. available ()) |
+     while (client.available ()) {
+                buf1[i1] = (uinte
+             _t) client. read () ;
+                  if(i1<bufferSize-1) i1++;
+               Serial. write (bufl, il);
+                 11 = 0;
+            if(Serial.available()) (
+             while (1) |
+              if (Serial.available ()) (
+        buf2 [i2] = (char) Serial. read ();
+
